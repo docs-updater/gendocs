@@ -12,12 +12,12 @@ jobs:
           sudo apt-get install -y asciidoctor
           asciidoctor getting-started.adoc
       - run: git clone git@github.com:aerogear/origin-web-console.git
-      - run: cd origin-web-console
-      - run: pwd
-      - run: git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
-      - run: cp ../getting-started.html /app/views/mobile-client-sdk-config/
-      - run: cd origin-web-console
-      - run: grunt build
+      - run: |
+          cd origin-web-console && 
+          pwd &&
+          git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
+      - run: cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
+      - run: cd origin-web-console && grunt build
 
       
 
