@@ -3,7 +3,6 @@
 version: 2
 jobs:
   build:
-    # working_directory: /tempo
     docker: 
       - image: circleci/node:6
     steps:
@@ -17,7 +16,7 @@ jobs:
           pwd &&
           git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
       - run: cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
-      - run: cd origin-web-console && npm i && grunt build
+      - run: cd origin-web-console && npm i && npm i -g grunt-cli && grunt build
       - run: |
           cd origin-web-console &&
           git add --all &&
