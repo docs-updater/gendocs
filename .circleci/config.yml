@@ -13,7 +13,8 @@ jobs:
           asciidoctor getting-started.adoc
       - run: git clone git@github.com:witmicko/origin-web-console.git
       - run: |
-          cp getting-started.html /app/views/mobile-client-sdk-config/
+          cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
+          cd origin-web-console
           grunt build
 
       
