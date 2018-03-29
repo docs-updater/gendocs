@@ -10,8 +10,7 @@ jobs:
       - setup_remote_docker
       - checkout
       - run: ls && pwd
-      - run: |
-          echo $CIRCLE_ENV
-          sudo docker run asciidoctor/docker-asciidoctor asciidoctor getting-started.adoc
+      - run: docker version
+      - run: docker run asciidoctor/docker-asciidoctor asciidoctor getting-started.adoc
 
       
