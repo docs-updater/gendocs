@@ -12,10 +12,10 @@ jobs:
           sudo apt-get install -y asciidoctor
           asciidoctor getting-started.adoc
       - run: git clone git@github.com:witmicko/origin-web-console.git
-      - run: |
-          cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
-          cd origin-web-console
-          grunt build
+      - run: ls
+      - run: cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
+      - run: cd origin-web-console
+      - run: grunt build
 
       
 
