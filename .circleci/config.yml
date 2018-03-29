@@ -3,33 +3,36 @@ defaults: &defaults
 
 version: 2
 jobs:
+  convertToHtml:
+      <<: *defaults
+      docker: 
+        - image: asciidoctor/docker-asciidoctor
+      steps:
+        - run: mkdir -p workspace
+        - run: echo "Hello, world!" > workspace/echo-output
+        - persist_to_workspace:
+            # Must be an absolute path, or relative path from working_directory. This is a directory on the container which is 
+            # taken to be the root directory of the workspace.
+            root: workspace
+            # Must be relative path from root
+            paths:
+              - echo-output
   once:
     <<: *defaults
     docker: 
       - image: circleci/node:6
     steps:
-      - restore_cache:
-          keys:
-            - docfile
-      - run: cat getting-started.html
-      - run: ls
-      - run: pwd
-      - git clone git@github.com:witmicko/origin-web-console.git
-      - run: ls
-  convertToHtml:
-    <<: *defaults
-    docker: 
-      - image: asciidoctor/docker-asciidoctor
-    steps:
-      - run: pwd
-      - run: ls
-      - checkout
-      - run: pwd
-      - run: asciidoctor getting-started.adoc
-      - save_cache:
-          key: docfile
-          paths: getting-started.html
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: /tmp/workspace
 
+      - run: |
+          if [[ `cat /tmp/workspace/echo-output` == "Hello, world!" ]]; then
+            echo "It worked!";
+          else
+            echo "Nope!"; exit 1
+          fi
+  
 workflows:
   version: 2
   build:
