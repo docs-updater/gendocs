@@ -1,10 +1,9 @@
-defaults: &defaults
-  working_directory: /repo
+
 
 version: 2
 jobs:
   convertToHtml:
-      <<: *defaults
+      working_directory: /repo
       docker: 
         - image: asciidoctor/docker-asciidoctor
       steps:
@@ -18,7 +17,7 @@ jobs:
             paths:
               - echo-output
   once:
-    <<: *defaults
+    working_directory: /asciidoc
     docker: 
       - image: circleci/node:6
     steps:
