@@ -15,10 +15,12 @@ jobs:
           cd origin-web-console && 
           pwd &&
           git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
-      - run: cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
+      - run: |
+          cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
       # - run: cd origin-web-console && npm i && sudo npm i -g grunt-cli && grunt build
       - run: |
           cd origin-web-console &&
+          git status -s &&
           git config user.email "something@ff.ff" &&
           git config user.name "somename" &&
           git add --all &&
