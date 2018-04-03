@@ -32,31 +32,31 @@ jobs:
       - run: 
           name: git status 
           command: |
-          cd origin-web-console &&
-          git status -s
+            cd origin-web-console &&
+            git status -s
       - run: 
           name: setup git user and remote 
           command: |
-          cd origin-web-console &&
-          git config user.email "something@ff.ff" &&
-          git config user.name "somename" &&
-          git remote add mick https://github.com/witmicko/origin-web-console.git
+            cd origin-web-console &&
+            git config user.email "something@ff.ff" &&
+            git config user.name "somename" &&
+            git remote add mick https://github.com/witmicko/origin-web-console.git
       - run: 
           name: git add all 
           command: |
-          cd origin-web-console &&
-          git add --all
+            cd origin-web-console &&
+            git add --all
       - run: 
           name: git commit
           command: |
-          cd origin-web-console &&
-          git checkout -b docs_update &&
-          git commit -m "yolo"
+            cd origin-web-console &&
+            git checkout -b docs_update &&
+            git commit -m "yolo"
       - run: 
           name: git status
           command: |
-          cd origin-web-console &&
-          git status -s  
+            cd origin-web-console &&
+            git status -s  
       - run: 
           name: git push 
           command: |
