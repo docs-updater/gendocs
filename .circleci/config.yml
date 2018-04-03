@@ -11,6 +11,8 @@ jobs:
           sudo apt-get install -y asciidoctor
           asciidoctor getting-started.adoc
       - run: git clone git@github.com:aerogear/origin-web-console.git
+      - run: echo $GITHUB_PWD
+      - run: echo $GITHUB_UNAME
       - run: |
           cd origin-web-console && 
           pwd &&
