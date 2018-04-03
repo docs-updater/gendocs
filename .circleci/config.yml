@@ -36,7 +36,6 @@ jobs:
             cd origin-web-console &&
             git config user.email "something@ff.ff" &&
             git config user.name "somename" &&
-            git remote add mick https://github.com/witmicko/origin-web-console.git
       - run: 
           name: git add all 
           command: |
@@ -53,16 +52,12 @@ jobs:
           command: |
             cd origin-web-console &&
             git status -s  
-      - run:
-          name: what branch
-          command:  cd origin-web-console && git branch
       - run: 
           name: git push 
           command: |
             cd origin-web-console &&
-            echo $GIT_SSH &&
             git remote -v &&
-            git push --repo https://$GITHUB_UNAME:$GITHUB_PWD@github.com/witmicko/origin-web-console.git docs_update
+            git push origin docs_update 
 
       
 
