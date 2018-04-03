@@ -19,5 +19,5 @@ before_script:
   - git remote add mick https://$GH_U:$GH_P@github.com/witmicko/gendocs.git
   - git remote -v 
   - git branch
-  - git push mick docks_update_2
+  - git push mick docs_update_2
   # - git push origin docs_update  
