@@ -10,7 +10,7 @@ before_script:
   - git config user.email "something@ff.ff"
   - git config user.name "somename"
   - git add --all
-  - git checkout -b docs_update 
+  - git checkout -b docs_update_2 
   - git commit -m "yolo"
   - git status -s  
   - git remote -v 
@@ -18,5 +18,6 @@ before_script:
   - echo $GH_P
   - git remote add mick https://$GH_U:$GH_P@github.com/witmicko/gendocs.git
   - git remote -v 
-  - git push mick docks_update
+  - git branch
+  - git push mick docks_update_2
   # - git push origin docs_update  
