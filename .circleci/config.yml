@@ -53,12 +53,15 @@ jobs:
           command: |
             cd origin-web-console &&
             git status -s  
+      - run:
+          name: what branch
+          command:  cd origin-web-console && git branch
       - run: 
           name: git push 
           command: |
             cd origin-web-console &&
             git remote -v &&
-            git push mick docs_update 
+            git push --repo https://$GITHUB_UNAME:$GITHUB_PWD@github.com/witmicko/origin-web-console.git 
 
       
 
