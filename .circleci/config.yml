@@ -20,12 +20,21 @@ jobs:
       # - run: cd origin-web-console && npm i && sudo npm i -g grunt-cli && grunt build
       - run: |
           cd origin-web-console &&
-          git status -s &&
+          git status -s
+      - run: |
+          cd origin-web-console &&
           git config user.email "something@ff.ff" &&
           git config user.name "somename" &&
-          git add --all &&
-          git commit -m "yolo" &&
           git remote add mick git@github.com:witmicko/origin-web-console.git
+      - run: |
+          cd origin-web-console &&
+          git add --all &&
+          git commit -m "yolo"
+      - run: |
+          cd origin-web-console &&
+          git status -s  
+      - run: |
+          cd origin-web-console &&
           git push mick AEROGEAR-2265-Mobile_Client_Representation_View
 
       
