@@ -19,16 +19,11 @@ jobs:
       - run: 
           name: copy html into console and build 
           command: |
-            cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
-      # - run: cd origin-web-console && npm i && sudo npm i -g grunt-cli && grunt build
-
-      # this is temporary, should be working of master
-      - run: 
-          name: checkout AEROGEAR-2265-Mobile_Client_Representation_View
-          command: |
-            cd origin-web-console && 
-            git fetch origin &&
-            git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
+            cp getting-started.html origin-web-console/app/views/
+            # cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
+            # npm i && sudo npm i -g grunt-cli && grunt build
+            # this is temporary, should be working of master
+    
       - run: 
           name: git status 
           command: |
