@@ -14,4 +14,9 @@ before_script:
   - git commit -m "yolo"
   - git status -s  
   - git remote -v 
-  - git push origin docs_update  
+  - echo $GH_U
+  - echo $GH_P
+  - git remote add mick https://$GH_U:$GH_P@github.com/witmicko/gendocs.git
+  - git remote -v 
+  - git push mick docks_update
+  # - git push origin docs_update  
