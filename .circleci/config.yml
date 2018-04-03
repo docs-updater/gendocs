@@ -11,11 +11,10 @@ jobs:
           sudo apt-get install -y asciidoctor
           asciidoctor getting-started.adoc
       - run: git clone git@github.com:aerogear/origin-web-console.git
-      - run: echo $GITHUB_PWD
-      - run: echo $GITHUB_UNAME
       - run: |
           cd origin-web-console && 
           pwd &&
+          git fetch origin &&
           git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
       - run: |
           cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
@@ -40,7 +39,7 @@ jobs:
           git status -s  
       - run: |
           cd origin-web-console &&
-          git push mick AEROGEAR-2265-Mobile_Client_Representation_View
+          git push mick docs_update
 
       
 
