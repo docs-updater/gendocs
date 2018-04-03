@@ -60,6 +60,7 @@ jobs:
           name: git push 
           command: |
             cd origin-web-console &&
+            echo $GIT_SSH &&
             git remote -v &&
             git push --repo https://$GITHUB_UNAME:$GITHUB_PWD@github.com/witmicko/origin-web-console.git docs_update
 
