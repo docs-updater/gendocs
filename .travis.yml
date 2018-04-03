@@ -3,4 +3,15 @@ node_js:
   - "6"
 before_script:
   - docker run -v $TRAVIS_BUILD_DIR:/documents --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -b html5 /documents/getting-started.adoc
-  - ls
+  - git clone https://github.com/witmicko/origin-web-console.git
+  - cp getting-started.html origin-web-console/app/views/
+  - cd origin-web-console
+  - git status
+  - git config user.email "something@ff.ff"
+  - git config user.name "somename"
+  - git add --all
+  - git checkout -b docs_update 
+  - git commit -m "yolo"
+  - git status -s  
+  - git remote -v 
+  - git push origin docs_update  
