@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - "6"
+before_script:
+  - docker run -v $TRAVIS_BUILD_DIR:/documents --name asciidoc-to-html asciidoctor/docker-asciidoctor asciidoctor -b html5 /documents/getting-started.adoc
+  - ls
