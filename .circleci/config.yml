@@ -26,7 +26,7 @@ jobs:
           cd origin-web-console &&
           git config user.email "something@ff.ff" &&
           git config user.name "somename" &&
-          git remote add mick git@github.com:witmicko/origin-web-console.git
+          git remote add mick https://github.com/witmicko/origin-web-console.git
       - run: |
           cd origin-web-console &&
           git add --all
@@ -39,7 +39,7 @@ jobs:
           git status -s  
       - run: |
           cd origin-web-console &&
-          git push mick docs_update
+          git push mick docs_update 
 
       
 
