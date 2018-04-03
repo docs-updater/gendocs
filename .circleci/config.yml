@@ -7,39 +7,61 @@ jobs:
       - image: circleci/node:6
     steps:
       - checkout
-      - run: |
-          sudo apt-get install -y asciidoctor
-          asciidoctor getting-started.adoc
-      - run: git clone git@github.com:aerogear/origin-web-console.git
-      - run: |
-          cd origin-web-console && 
-          pwd &&
-          git fetch origin &&
-          git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
-      - run: |
-          cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
+      - run:
+          name: install asciidoc and convert 
+          command: |
+            sudo apt-get install -y asciidoctor
+            asciidoctor getting-started.adoc
+      - run: 
+          name: clone aerogear/origin-web-console
+          command: |
+            git clone git@github.com:aerogear/origin-web-console.git
+      - run: 
+          name: copy html into console and build 
+          command: |
+            cp getting-started.html origin-web-console/app/views/mobile-client-sdk-config/
       # - run: cd origin-web-console && npm i && sudo npm i -g grunt-cli && grunt build
-      - run: |
+
+      # this is temporary, should be working of master
+      - run: 
+          name: checkout AEROGEAR-2265-Mobile_Client_Representation_View
+          command: |
+            cd origin-web-console && 
+            git fetch origin &&
+            git checkout origin/AEROGEAR-2265-Mobile_Client_Representation_View
+      - run: 
+          name: git status 
+          command: |
           cd origin-web-console &&
           git status -s
-      - run: |
+      - run: 
+          name: setup git user and remote 
+          command: |
           cd origin-web-console &&
           git config user.email "something@ff.ff" &&
           git config user.name "somename" &&
           git remote add mick https://github.com/witmicko/origin-web-console.git
-      - run: |
+      - run: 
+          name: git add all 
+          command: |
           cd origin-web-console &&
           git add --all
-      - run: |
+      - run: 
+          name: git commit
+          command: |
           cd origin-web-console &&
           git checkout -b docs_update &&
           git commit -m "yolo"
-      - run: |
+      - run: 
+          name: git status
+          command: |
           cd origin-web-console &&
           git status -s  
-      - run: |
-          cd origin-web-console &&
-          git push mick docs_update 
+      - run: 
+          name: git push 
+          command: |
+            cd origin-web-console &&
+            git push mick docs_update 
 
       
 
