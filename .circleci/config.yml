@@ -30,7 +30,10 @@ jobs:
           git remote add mick git@github.com:witmicko/origin-web-console.git
       - run: |
           cd origin-web-console &&
-          git add --all &&
+          git add --all
+      - run: |
+          cd origin-web-console &&
+          git checkout -b docs_update &&
           git commit -m "yolo"
       - run: |
           cd origin-web-console &&
