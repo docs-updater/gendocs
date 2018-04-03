@@ -21,6 +21,8 @@ jobs:
           cd origin-web-console &&
           git add --all &&
           git commit -m "yolo" &&
+          git config user.email "something@ff.ff" &&
+          git config user.name "somename" &&
           git remote add mick git@github.com:witmicko/origin-web-console.git
           git push mick AEROGEAR-2265-Mobile_Client_Representation_View
 
